@@ -1,0 +1,188 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3ibd7fr4adn4"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_78ykr"]
+
+[sub_resource type="Theme" id="Theme_xokqm"]
+default_font_size = 24
+
+[node name="Main" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_xokqm")
+script = ExtResource("1_78ykr")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="IntRgba" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/IntRgba"]
+layout_mode = 2
+text = "[0, 255]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="R" type="SpinBox" parent="MarginContainer/HBoxContainer/IntRgba"]
+layout_mode = 2
+max_value = 255.0
+prefix = "R"
+
+[node name="G" type="SpinBox" parent="MarginContainer/HBoxContainer/IntRgba"]
+layout_mode = 2
+max_value = 255.0
+prefix = "G"
+
+[node name="B" type="SpinBox" parent="MarginContainer/HBoxContainer/IntRgba"]
+layout_mode = 2
+max_value = 255.0
+prefix = "B"
+
+[node name="A" type="SpinBox" parent="MarginContainer/HBoxContainer/IntRgba"]
+layout_mode = 2
+max_value = 255.0
+value = 255.0
+prefix = "A"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="FloatRgba" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/FloatRgba"]
+layout_mode = 2
+text = "[0.0, 1.0]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="R" type="SpinBox" parent="MarginContainer/HBoxContainer/FloatRgba"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+prefix = "R"
+
+[node name="G" type="SpinBox" parent="MarginContainer/HBoxContainer/FloatRgba"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+prefix = "G"
+
+[node name="B" type="SpinBox" parent="MarginContainer/HBoxContainer/FloatRgba"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+prefix = "B"
+
+[node name="A" type="SpinBox" parent="MarginContainer/HBoxContainer/FloatRgba"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+prefix = "A"
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Hex"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Hex" type="LineEdit" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="VSeparator3" type="VSeparator" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+text = "uint8"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RgbaLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+text = "RGBA"
+
+[node name="Rgba" type="LineEdit" parent="MarginContainer/HBoxContainer/VBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="ArgbLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+text = "ARGB"
+
+[node name="Argb" type="LineEdit" parent="MarginContainer/HBoxContainer/VBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="VSeparator4" type="VSeparator" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Preview"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/IntRgba/R" to="." method="_on_r_value_changed"]
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/IntRgba/G" to="." method="_on_g_value_changed"]
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/IntRgba/B" to="." method="_on_b_value_changed"]
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/IntRgba/A" to="." method="_on_a_value_changed"]
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/FloatRgba/R" to="." method="_on_float_r_value_changed"]
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/FloatRgba/G" to="." method="_on_float_g_value_changed"]
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/FloatRgba/B" to="." method="_on_float_b_value_changed"]
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/FloatRgba/A" to="." method="_on_float_a_value_changed"]
+[connection signal="text_changed" from="MarginContainer/HBoxContainer/VBoxContainer2/Hex" to="." method="_on_hex_text_changed"]
+[connection signal="text_changed" from="MarginContainer/HBoxContainer/VBoxContainer4/Rgba" to="." method="_on_rgba_text_changed"]
+[connection signal="text_changed" from="MarginContainer/HBoxContainer/VBoxContainer4/Argb" to="." method="_on_argb_text_changed"]
