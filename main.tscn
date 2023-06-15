@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c3ibd7fr4adn4"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_78ykr"]
-[ext_resource type="Texture2D" uid="uid://bixcu08mgrd01" path="res://checkboard_bg.png" id="2_apdef"]
+[ext_resource type="Texture2D" uid="uid://u7y4mr40bl1v" path="res://checkerboard.png" id="2_lem4m"]
 
 [sub_resource type="Theme" id="Theme_xokqm"]
 default_font_size = 24
@@ -174,7 +174,7 @@ vertical_alignment = 1
 [node name="Bg" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("2_apdef")
+texture = ExtResource("2_lem4m")
 stretch_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/VBoxContainer3/Bg"]
