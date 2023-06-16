@@ -38,7 +38,7 @@ size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/IntRgba"]
 layout_mode = 2
-text = "[0, 255]"
+text = "0..255"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -63,6 +63,10 @@ max_value = 255.0
 value = 255.0
 prefix = "A"
 
+[node name="Copy0-255" type="Button" parent="MarginContainer/HBoxContainer/IntRgba"]
+layout_mode = 2
+text = "Copy"
+
 [node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 
@@ -73,7 +77,7 @@ size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/FloatRgba"]
 layout_mode = 2
-text = "[0.0, 1.0]"
+text = "0.0..1.0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -101,6 +105,10 @@ max_value = 1.0
 step = 0.001
 prefix = "A"
 
+[node name="Copy0-1" type="Button" parent="MarginContainer/HBoxContainer/FloatRgba"]
+layout_mode = 2
+text = "Copy"
+
 [node name="VSeparator2" type="VSeparator" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 
@@ -111,7 +119,7 @@ size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Hex"
+text = "HEX"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -121,6 +129,10 @@ layout_mode = 2
 alignment = 1
 caret_blink = true
 caret_blink_interval = 0.5
+
+[node name="CopyHex" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Copy"
 
 [node name="VSeparator3" type="VSeparator" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -132,7 +144,7 @@ size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer4"]
 layout_mode = 2
-text = "uint8"
+text = "UNSIGNED INT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -147,6 +159,10 @@ alignment = 1
 caret_blink = true
 caret_blink_interval = 0.5
 
+[node name="CopyUintRgba" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+text = "Copy"
+
 [node name="ArgbLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer4"]
 layout_mode = 2
 text = "ARGB"
@@ -158,6 +174,10 @@ alignment = 1
 caret_blink = true
 caret_blink_interval = 0.5
 
+[node name="CopyUintArgb" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+text = "Copy"
+
 [node name="VSeparator4" type="VSeparator" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 
@@ -167,7 +187,7 @@ size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
-text = "Preview"
+text = "PREVIEW"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -191,10 +211,15 @@ size_flags_vertical = 3
 [connection signal="value_changed" from="MarginContainer/HBoxContainer/IntRgba/G" to="." method="_on_g_value_changed"]
 [connection signal="value_changed" from="MarginContainer/HBoxContainer/IntRgba/B" to="." method="_on_b_value_changed"]
 [connection signal="value_changed" from="MarginContainer/HBoxContainer/IntRgba/A" to="." method="_on_a_value_changed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/IntRgba/Copy0-255" to="." method="_on_copy_0255_pressed"]
 [connection signal="value_changed" from="MarginContainer/HBoxContainer/FloatRgba/R" to="." method="_on_float_r_value_changed"]
 [connection signal="value_changed" from="MarginContainer/HBoxContainer/FloatRgba/G" to="." method="_on_float_g_value_changed"]
 [connection signal="value_changed" from="MarginContainer/HBoxContainer/FloatRgba/B" to="." method="_on_float_b_value_changed"]
 [connection signal="value_changed" from="MarginContainer/HBoxContainer/FloatRgba/A" to="." method="_on_float_a_value_changed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/FloatRgba/Copy0-1" to="." method="_on_copy_01_pressed"]
 [connection signal="text_changed" from="MarginContainer/HBoxContainer/VBoxContainer2/Hex" to="." method="_on_hex_text_changed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/CopyHex" to="." method="_on_copy_hex_pressed"]
 [connection signal="text_changed" from="MarginContainer/HBoxContainer/VBoxContainer4/Rgba" to="." method="_on_rgba_text_changed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer4/CopyUintRgba" to="." method="_on_copy_uint_rgba_pressed"]
 [connection signal="text_changed" from="MarginContainer/HBoxContainer/VBoxContainer4/Argb" to="." method="_on_argb_text_changed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer4/CopyUintArgb" to="." method="_on_copy_uint_argb_pressed"]

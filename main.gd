@@ -105,3 +105,33 @@ func _on_rgba_text_changed(new_text):
 func _on_argb_text_changed(new_text):
 	color = argb_int_to_color(int(new_text))
 	_update()
+
+
+func _on_copy_0255_pressed():
+	var content = "%d, %d, %d, %d" % [%IntRgba.get_child(1).value, %IntRgba.get_child(2).value, %IntRgba.get_child(3).value, %IntRgba.get_child(4).value]
+	print("Set clipboard: ", content)
+	DisplayServer.clipboard_set(content)
+
+
+func _on_copy_01_pressed():
+	var content = "%f, %f, %f, %f" % [%FloatRgba.get_child(1).value, %FloatRgba.get_child(2).value, %FloatRgba.get_child(3).value, %FloatRgba.get_child(4).value]
+	print("Set clipboard: ", content)
+	DisplayServer.clipboard_set(content)
+
+
+func _on_copy_hex_pressed():
+	var content = %Hex.text
+	print("Set clipboard: ", content)
+	DisplayServer.clipboard_set(content)
+
+
+func _on_copy_uint_rgba_pressed():
+	var content = %Rgba.text
+	print("Set clipboard: ", content)
+	DisplayServer.clipboard_set(content)
+
+
+func _on_copy_uint_argb_pressed():
+	var content = %Argb.text
+	print("Set clipboard: ", content)
+	DisplayServer.clipboard_set(content)
